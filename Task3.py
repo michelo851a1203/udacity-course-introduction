@@ -3,6 +3,7 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files.
 """
 import csv
+import re
 
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
@@ -11,6 +12,33 @@ with open('texts.csv', 'r') as f:
 with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
+
+print(calls[0])
+
+resultList = []
+
+matchRegx = "^" + re.escape("(") + "080" + re.escape(")")
+
+for callItem in calls:
+    if re.match(r"^(7|8|9).*?\s.*?$", callItem[0]) != None and re.match(matchRegx, callItem[1]):
+        resultList.append(callItem)
+
+print("The numbers called by people in Bangalore have codes: {count}".format(
+    count=len(matchRegx)
+    ))
+
+anotherList = []
+
+for callItem in calls:
+    if re.match(matchRegx, callItem[0]) != None or re.match(matchRegx, callItem[1]) != None:
+        anotherList.append(callItem)
+
+resultPercent = (len(anotherList) / len(calls)) * 100
+
+print("{percent} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(
+    percent=resultPercent
+    ))
+
 
 """
 TASK 3:
