@@ -15,25 +15,31 @@ with open('calls.csv', 'r') as f:
 
 print(calls[0])
 
-resultList = []
+# resultList = []
+totalResultCount = 0
 
 matchRegx = "^" + re.escape("(") + "080" + re.escape(")")
 
 for callItem in calls:
     if re.match(r"^(7|8|9).*?\s.*?$", callItem[0]) != None and re.match(matchRegx, callItem[1]):
-        resultList.append(callItem)
+        totalResultCount += 1
+        # resultList.append(callItem)
 
 print("The numbers called by people in Bangalore have codes: {count}".format(
-    count=len(matchRegx)
+    count=totalResultCount
     ))
 
-anotherList = []
+# anotherList = []
+
+totalAnother = 0
 
 for callItem in calls:
     if re.match(matchRegx, callItem[0]) != None or re.match(matchRegx, callItem[1]) != None:
-        anotherList.append(callItem)
+        totalAnother += 1
+        # anotherList.append(callItem)
 
-resultPercent = (len(anotherList) / len(calls)) * 100
+resultPercent = (totalAnother / len(calls)) * 100
+# resultPercent = (len(anotherList) / len(calls)) * 100
 
 print("{percent} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(
     percent=resultPercent
