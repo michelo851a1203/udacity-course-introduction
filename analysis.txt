@@ -1,0 +1,61 @@
+Task0.py :
+
+```
+O(1) : It gets first and the last data, It doesn't depend on any input and loop to get information.
+
+myAnswer : O(1)
+```
+=============================
+Task1.py :
+
+```
+O(n^2 - n): if texts or calls increment data count then, `for loop` will search more data.
+
+first: search n and check resultList 0 data count
+second: search n and check resultList 1 data count
+3 times : search n and check resultList 2 data count
+...
+search n times and checkt result n - 1 data count
+
+myAnswer : O(n(n-1)) = O(n^2 - n)
+
+```
+
+=============================
+Task2.py : 
+
+```
+O(2n) : search and add key and value to object this is my solution
+and then check the max value and then get key and value
+
+search n data and if exist get sum to original key, if not exist generate key and value
+this will O(n)
+
+find max one with O(n) to compare previous number, It spends O(n)
+
+myAnswer : O(2n)
+
+```
+
+=============================
+Task3.py
+
+```
+O(n): I use the regular expression to check if data is correspond to my meet.
+
+search times with data count will increment
+
+myAnswer : O(n)
+```
+
+=============================
+Task4.py
+
+```
+O(n): I use the regular expression to check if data is correspond to my meet.
+
+search times with data count will increment
+
+myAnswer : O(n)
+```
+
